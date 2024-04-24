@@ -5,6 +5,8 @@ problem_01
 def Power(number , power ):
     if power == 0:
         return 1
+    elif power<0:
+        return (1/Power(number,-power))
     else:
         return (number*Power(number,power-1))
 number = int(input('number : '))
