@@ -11,5 +11,4 @@ def Power(number , power ):
         return (number*Power(number,power-1))
 number = int(input('number : '))
 power = int(input('Power : '))
-result = (Power(number , power))
-print(result)
+print(Power(number , power))
