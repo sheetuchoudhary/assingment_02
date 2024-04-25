@@ -1,35 +1,41 @@
 '''
 problem_2
+Program for solving problem _02
+Winner Winner Chocolate Dinner
+
 '''
-#Winner Winner Chocolate Dinner
-'''def bowl(co_num):
-    return 
-co_num = int(input('number of chocolates : '))
-print(bowl(co_num))'''
 
-def Player_1(co_num):
-    co_num = co_num-1
-    return Player_2(co_num)
-def Player_2(co_num):
-    if co_num %2==0 :
-        co_num = co_num-2
-        return Player_1(co_num)
+
+# function for applying the stratagey of player_01
+def Player_1(to_co):
+
+    if to_co > 0: #if there is a choclate in a bowl
+        re_co = to_co -1 
+        if re_co == 0:
+            return 1
     else :
-        co_num = co_num-1
-        return Player_1(co_num)
-        
-    
+        return -1
 
-#Winner Winner Chocolate Dinner
-def bowl(co_num):
-        one = Player_1(co_num)
-        if one <= 2:
-            print('Player2 win')
+    return Player_2(re_co) #calling player_2 turns with the remaining choclates in a bowl
+
+# function for applying the stratagey of player_02
+def Player_2(to_co):
+
+    if to_co % 2 == 0 : 
+        re_co = to_co-2  #if the remaining number of choclates are even player_2 picks 2 choclates
+    else :
+        re_co = to_co -1 #if the remaining number of choclates are odd player_2 picks 1 choclate
+
+    return Player_1(re_co) #calling player_1 turns with the remaining choclates in a bowl
+
+#Winner Winner Chocolate Dinner ___function for playing game
+def bowl(to_co):  
+        Start = Player_1(to_co)
+        if Start == 1:   #checking for the return values ,if it is true player_1 wins
+            print('Player 1 win !!')
             
-        else:
-            two = Player_2(co_num-1)
-            if two == 1 :
-                print('Player1 win')
+        else:   #if it is false player_2 wins
+            print('Player 2 win !!')
     
-co_num = int(input('number of chocolates : '))
-print(bowl(co_num))
+to_co = int(input('total number of chocolates in a bowl : '))
+bowl(to_co)
