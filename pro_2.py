@@ -14,7 +14,7 @@ def Player_1(to_co):
         if re_co == 0:
             return 1 
     else :
-        return 2
+        return -1
 
     return Player_2(re_co) #calling player_2 turns with the remaining choclates in a bowl
 
